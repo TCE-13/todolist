@@ -1,0 +1,91 @@
+*
+{
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.body-background
+{
+    background: linear-gradient(to right, #1cb5e0, #007bff);
+}
+
+.btn.btn-me
+{
+    background-color: rgba(0, 0, 0, 0.3);
+    font-weight:bold;
+    color: rgba(255, 255, 255, 1);
+}
+.btn.btn-me:hover
+{
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.6);
+}
+
+
+.box
+{
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+.box-header
+{
+    font-weight: bold;
+    font-size: 18px;
+    color: #007bffb4;
+    padding: 5px 10px;
+}
+.box-body
+{
+    padding: 5px;
+    min-height: 500px;
+}
+.task
+{
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+.task-header
+{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(20, 20, 20);
+}
+.task-header-color
+{
+    width: 35px;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.task-body
+{
+    text-align: left;
+}
+.nav-item .nav-link
+{
+    color: rgba(0, 123, 255, 0.8) !important;
+
+}
+.nav-item .nav-link:hover
+{
+    color: rgba(0, 123, 255, 1) !important;
+
+}
+#completed > .task .task-header
+{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.5);
+}
+#completed > .task .task-body
+{
+    text-decoration: line-through;
+    color: rgba(0, 0, 0, 0.5);
+}
