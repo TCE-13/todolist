@@ -10,9 +10,10 @@ export class App
         this.storage = new StorageController();
         this.taskController = new TaskController();
     }
-
+    
     init()
-    {
+    {   
+        
         const ui =  this.ui;
         let Tasks = this.storage.getTasks();
         Tasks.forEach(function(item){

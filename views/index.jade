@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    title= title
+
+    script(src='https://code.jquery.com/jquery-3.5.1.js')
+    script(src='https://code.jquery.com/ui/1.12.0/jquery-ui.min.js')
+    script(script src="https://kit.fontawesome.com/01b16fd4d6.js")
+    script(type='module' , src='./javascripts/app.js')
+
+    link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap")
+    
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+  body(class='body-background')
+    
+    button(class='btn btn-me ml-4 mt-2', data-toggle='modal' data-target='#exampleModalCenter')
+      i(class='fas fa-plus')  Yeni Görev
+
+    div(class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true")
+      div(class="modal-dialog modal-dialog-centered" role="document")
+        div(class="modal-content")
+          div(class="modal-header")
+            h5(class="modal-title" id="exampleModalCenterTitle") Yeni Görev Ekle
+
+            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+          
+          div(class="modal-body")
+            form
+              div(class="form-group")
+                label(class="badge badge-secondary" style="font-size: 16px;") Renk
+                select(class="custom-select" id="inputGroupSelect01")
+                  option(selected) primary
+                  option(value="secondary") secondary
+                  option(value="success") success
+                  option(value="danger") danger
+                  option(value="warning") warning
+                  option(value="info") info
+                  option(value="dark") dark
+              div(class="form-group")
+                label(class="badge badge-secondary" style="font-size: 16px;") Görev Başlığı
+                input(type="text" minlength="3" maxlength="25" class="form-control" id="title")
+              div(class="form-group")
+                label(class="badge badge-secondary" style="font-size: 16px;") Görev Yazısı
+                textarea(class="form-control" minlength="3" maxlength="120" id="text")
+          div(class="modal-footer")
+            button(type="button" class="btn btn-secondary" data-dismiss="modal") Kapat
+            button(type="button" class="btn btn-primary" id="newTaskBtn") Ekle
+
+    div(class="container-fluid pl-3 mt-1 clearfix ui-widget ui-helper-clearfix")
+      div(class="box p-1 m-2 float-left")
+        div(class="box-header") Yapılacaklar
+        div(class="box-body ui-widget-content" id="todo")
+
+      div(class="box p-1 m-2 float-left")
+        div(class="box-header") Yapılacaklar
+        div(class="box-body ui-widget-content" id="working")
+
+      div(class="box p-1 m-2 float-left")
+        div(class="box-header") Yapılacaklar
+        div(class="box-body ui-widget-content" id="completed")
+
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
