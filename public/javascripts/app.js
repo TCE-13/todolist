@@ -19,15 +19,14 @@ export class App
         Tasks.forEach(function(item){
             ui.Add(item);
         });
-        ui.Move();
         this.Events();
     }
 
     Add(color,title,text)
     {
         this.taskController.Add(color,title,text,'todo');
-        this.ui.Move();
         this.Events();
+        
     }
     Events()
     {
@@ -36,24 +35,36 @@ export class App
             let color = document.querySelector('#inputGroupSelect01'),
                 title = document.querySelector('#title'),
                 text  = document.querySelector('#text');
-        
-            app.Add(color.value,title.value,text.value);
-        
+                
+            if(title.value != '' && text.value != '')
+            {
+                app.Add(color.value,title.value,text.value);
+            }
+            
+            
+            $('#exampleModalCenter').modal('toggle');
             color.value = "primary"
             title.value = "";
             text.value = "";
         
-            $('#exampleModalCenter').modal('toggle');
+            
         });
 
-        $('#delete').on( "click", function() {
-            const taskCtrl = new TaskController();
-            let item =  this.parentElement.parentElement.parentElement.parentElement;
-            let id = item.getAttribute('data-id');
-            
-            taskCtrl.Delete(item,id);
-            
-        });
+        function Del()
+        {
+            const delBtn = document.querySelectorAll('#delete');
+
+            delBtn.forEach(item =>{
+                item.addEventListener('click',function(){
+                    const taskCtrl = new TaskController();
+                    let item =  this.parentElement.parentElement.parentElement.parentElement;
+                    let id = item.getAttribute('data-id');
+                    
+                    taskCtrl.Delete(item,id);
+                });
+            });
+        }
+
         
         $('#update').on("click", function() {
             
@@ -73,6 +84,8 @@ export class App
             
             $('#UpdateModal').modal('toggle');
         });
+        Del();
+        this.ui.Move();
     }
 }
 
