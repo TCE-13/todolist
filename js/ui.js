@@ -69,71 +69,47 @@ export class UI
 
     Add(newtask)
     {
+        let task = document.createElement('div');
+        let taskHeader = document.createElement('div');
+        let taskColor = document.createElement('div');
+        let taskBody = document.createElement('div');
+
+        task.setAttribute('data-id',newtask.id);
+        task.classList.add('task');
+        taskHeader.classList.add('task-header');
+        taskColor.classList.add(`task-header-color`);
+        taskColor.classList.add('bg-'+newtask.color);
+        taskBody.classList.add('task-body');
+
+        taskHeader.append(taskColor);
+        taskHeader.append(newtask.title),
+
+        taskBody.append(newtask.text);
+
+        task.append(taskHeader);
+        task.append(taskBody);
+        task.innerHTML += `
+            <div class="task-footer p-0 m-0 ">
+                <ul class="nav text-center">
+                    <li class="nav-item  w-100">
+                        <a class="nav-link" id="delete"><i class="fas fa-times"></i></a>
+                    </li>
+                </ul>
+            </div>`
+        
+        ;
+
         if(newtask.where == "todo")
         {
-            this.todo.append(`
-
-                <div class="task"  data-id="${newtask.id}">
-                    <div class="task-header">
-                        <div class="task-header-color bg-${newtask.color}"></div>
-                        ${newtask.title}
-                    </div>
-                    <div class="task-body">
-                        ${newtask.text}
-                    </div>
-                    <div class="task-footer p-0 m-0 ">
-                        <ul class="nav text-center">
-                            <li class="nav-item  w-100">
-                                <a class="nav-link" id="delete"><i class="fas fa-times"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                            `);
+            this.todo.append(task);
         }
         else if(newtask.where == 'working')
         {
-            this.working.append(`
-
-                <div class="task"  data-id="${newtask.id}">
-                    <div class="task-header">
-                        <div class="task-header-color bg-${newtask.color}"></div>
-                        ${newtask.title}
-                    </div>
-                    <div class="task-body">
-                        ${newtask.text}
-                    </div>
-                    <div class="task-footer p-0 m-0 text-primary">
-                        <ul class="nav text-center">
-                            <li class="nav-item  w-100">
-                                <a class="nav-link" id="delete"><i class="fas fa-times"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                            `);
+            this.working.append(task);
         }
         else if(newtask.where == 'completed')
         {
-            this.completed.append(`
-
-                <div class="task"  data-id="${newtask.id}">
-                    <div class="task-header">
-                        <div class="task-header-color bg-${newtask.color}"></div>
-                        ${newtask.title}
-                    </div>
-                    <div class="task-body">
-                        ${newtask.text}
-                    </div>
-                    <div class="task-footer p-0 m-0 text-primary">
-                        <ul class="nav text-center">
-                            <li class="nav-item  w-100">
-                                <a class="nav-link" id="delete"><i class="fas fa-times"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                            `);
+            this.completed.append(task);
         }
         
     }
